@@ -1,0 +1,45 @@
+<app-nabvar></app-nabvar>
+<div class="col-md-4 offset-md-4">
+    <div class="card">
+        <form>
+            <div class="form-group">
+                <input type="text" name="nombreAutor" [(ngModel)]="libro.nombreAutor" placeholder="Nombre del Autor" class="form-control" autofocus>
+              </div>
+              <div class="form-group">
+                <input type="text" name="titulo" [(ngModel)]="libro.titulo" placeholder="Título" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="editorial" [(ngModel)]="libro.editorial" placeholder="Editorial" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="categoria" [(ngModel)]="libro.categoria" placeholder="Categoría" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="anioPublicacion" [(ngModel)]="libro.anioPublicacion" placeholder="Año de Publicación" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="text" name="disponibilidad" [(ngModel)]="libro.disponibilidad" placeholder="Disponibilidad" class="form-control">
+              </div>     
+              <div class="form-group">
+                <input type="text" name="img" [(ngModel)]="libro.img" placeholder="URL de la imagen" class="form-control">
+              </div>         
+            <button class="btn btn-success btn-block" (click)="edit ? updateLibro() : crearLibro()">
+                Save
+            </button>
+        </form>
+    </div>
+</div>
+
+<div class="col-md-2">
+    <div class="card card-body text-center">
+      <img [src]="libro.img == '' ? '/assets/noimage.png' : libro.img" class="card-img-top">
+      <h3>{{libro.titulo == '' ? 'Título del Libro' : libro.titulo}}</h3>
+      <p>{{libro.anioPublicacion == '' ? 'Año desconocido' : libro.anioPublicacion}}</p>
+      <p>Autor: {{libro.nombreAutor == '' ? 'Autor Desconocido' : libro.nombreAutor}}</p>
+      <p>Editorial: {{libro.editorial == '' ? 'Editorial Desconocida' : libro.editorial}}</p>
+      <p>Categoría: {{libro.categoria == 0 ? 'Categoría Desconocida' : libro.categoria}}</p>
+      <p>Disponibilidad: {{libro.disponibilidad == '' ? 'Disponibilidad Desconocida' : libro.disponibilidad}}</p>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,32 @@
+<app-nabvar></app-nabvar>
+<div class="container" >
+  <div class="row">
+    <div class="col-md-3"  *ngFor="let libro of libros" >
+      <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+          {{ libro.titulo }}
+          <div *ngIf="isBibliotecario">
+          <button class="btn btn-danger" (click)="deleteLibro(libro._id)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </div>
+        </div>
+        <div class="card card-body text-center" >
+          <img [src]="libro.img" class="card-img-top">
+
+          <p>titulo: {{ libro.T == '' ? 'Autor Desconocido' : libro.nombreAutor }}</p>
+          <p>Autor: {{ libro.nombreAutor == '' ? 'Autor Desconocido' : libro.nombreAutor }}</p>
+          <p>Editorial: {{ libro.editorial == '' ? 'Editorial Desconocida' : libro.editorial }}</p>
+          <p>Categoría: {{  libro.categoria }}</p>
+          <p>Año de publicación: {{ libro.anioPublicacion }}</p>
+          <p>Disponibilidad: {{ libro.disponibilidad == '' ? 'Disponibilidad Desconocida' : libro.disponibilidad }}</p>
+         <div *ngIf="isBibliotecario">
+          <a [routerLink]="['/libros/edit', libro._id]" class="btn btn-info btn-block">
+            EDITAR LIBRO
+          </a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
